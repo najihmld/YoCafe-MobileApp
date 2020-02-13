@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SERVER_API } from 'react-native-dotenv';
 
 export const addCart = data => {
   return {
@@ -37,6 +38,6 @@ export const decrementCart = id => {
 export const createOrder = body => {
   return {
     type: 'POST_CART',
-    payload: axios.post('http://127.0.0.1:3001/orders/', body)
+    payload: axios.post(`${SERVER_API}/orders/`, body)
   };
 };

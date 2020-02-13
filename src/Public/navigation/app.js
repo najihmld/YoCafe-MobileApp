@@ -14,6 +14,7 @@ import {
   faCog,
   faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
+import { SERVER_API } from 'react-native-dotenv';
 const DrawerContent = props => (
   <SafeAreaView>
     <View>
@@ -21,7 +22,7 @@ const DrawerContent = props => (
         <Thumbnail
           style={styles.profil}
           source={{
-            uri: 'http://127.0.0.1:3001/' + props.auth.data.image
+            uri: `${SERVER_API}/` + props.auth.data.image
           }}
         />
         <Text style={styles.name}>{props.auth.data.name}</Text>

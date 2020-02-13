@@ -16,6 +16,7 @@ import { getProduct } from './action';
 import { getCategory } from './Category/action';
 import NumberFormat from 'react-number-format';
 import { addCart } from '../Public/redux/Cart/action';
+import { SERVER_API } from 'react-native-dotenv';
 
 class Home extends React.Component {
   componentDidMount() {
@@ -128,7 +129,7 @@ class Home extends React.Component {
                   <Image
                     style={styles.img}
                     source={{
-                      uri: 'http://127.0.0.1:3001/' + item.image
+                      uri: `${SERVER_API}/` + item.image
                     }}
                   />
                 </TouchableOpacity>

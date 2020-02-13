@@ -12,6 +12,7 @@ import { getUser } from '../Public/redux/User/action';
 import ImagePicker from 'react-native-image-picker';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
+import { SERVER_API } from 'react-native-dotenv';
 
 class Profil extends React.Component {
   componentDidMount() {
@@ -71,7 +72,7 @@ class Profil extends React.Component {
       });
 
       axios
-        .put(`http://127.0.0.1:3001/users/${this.props.auth.data.id}`, body)
+        .put(`${SERVER_API}/users/${this.props.auth.data.id}`, body)
         .then(response => {
           if (response.status === 200) {
             ToastAndroid.showWithGravity(

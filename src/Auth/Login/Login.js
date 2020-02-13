@@ -12,6 +12,7 @@ import { Form } from 'native-base';
 import axios from 'axios';
 import qs from 'qs';
 import { connect } from 'react-redux';
+import { SERVER_API } from 'react-native-dotenv';
 
 class App extends Component {
   state = {
@@ -37,7 +38,7 @@ class App extends Component {
       );
     } else {
       axios
-        .post('http://127.0.0.1:3001/auth/login', qs.stringify(body))
+        .post(`${SERVER_API}/auth/login`, qs.stringify(body))
         .then(res => {
           this.props.navigation.navigate('App');
           this.props.setDataLogin(res.data.data);
@@ -87,7 +88,7 @@ class App extends Component {
           />
           <TouchableOpacity onPress={this.handleLogin}>
             <View style={styles.button}>
-              <Text style={styles.textLogin}>Submit</Text>
+              <Text style={styles.textLogin}>Login</Text>
             </View>
           </TouchableOpacity>
         </Form>

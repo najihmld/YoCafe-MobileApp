@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { SERVER_API } from 'react-native-dotenv';
 
 export const getOrders = () => {
   return {
     type: 'GET_ORDERS',
-    payload: axios.get('http://127.0.0.1:3001/orders')
+    payload: axios.get(`${SERVER_API}/orders`)
   };
 };

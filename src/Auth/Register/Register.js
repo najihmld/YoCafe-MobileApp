@@ -12,6 +12,7 @@ import { Form } from 'native-base';
 import axios from 'axios';
 import qs from 'qs';
 import { connect } from 'react-redux';
+import { SERVER_API } from 'react-native-dotenv';
 
 class Register extends Component {
   state = {
@@ -43,7 +44,7 @@ class Register extends Component {
       );
     } else {
       axios
-        .post('http://127.0.0.1:3001/auth/register', qs.stringify(body))
+        .post(`${SERVER_API}/auth/register`, qs.stringify(body))
         .then(res => {
           this.props.navigation.navigate('Login');
         })
